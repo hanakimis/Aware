@@ -16,7 +16,8 @@ class ViewController: UIViewController {
     var captureSession: AVCaptureSession?
     var videoPreviewLayer: AVCaptureVideoPreviewLayer?
     var capturePhotoOutput: AVCapturePhotoOutput?
-    
+    var photoTimer: Timer!
+    var photoCount = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,14 +51,26 @@ class ViewController: UIViewController {
     }
     
     @IBAction func takePhoto(_ sender: Any) {
+        
+        photoTimer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(capturePhotoBurst), userInfo: nil, repeats: true)
+    }
+    
+    @objc func capturePhotoBurst() {
         guard let capturePhotoOutput = self.capturePhotoOutput else { return }
-        
-        let photoSettings = AVCapturePhotoSettings()
-        photoSettings.isAutoStillImageStabilizationEnabled = true
-        photoSettings.isHighResolutionPhotoEnabled = true
-        photoSettings.flashMode = .auto
-        
-        capturePhotoOutput.capturePhoto(with: photoSettings, delegate: self)
+
+        if photoCount == 20 {
+            photoTimer.invalidate()
+            photoCount = 0
+        } else
+        {
+            photoCount += 1
+            
+            let photoSettings = AVCapturePhotoSettings()
+            photoSettings.isAutoStillImageStabilizationEnabled = true
+            photoSettings.isHighResolutionPhotoEnabled = true
+            photoSettings.flashMode = .auto
+            capturePhotoOutput.capturePhoto(with: photoSettings, delegate: self)
+        }
     }
     
     override func didReceiveMemoryWarning() {
