@@ -45,6 +45,10 @@ class ViewController: UIViewController {
     }
     
     
+    override func viewDidAppear(_ animated: Bool) {
+        takePhoto(self)
+    }
+    
     @IBAction func takePhoto(_ sender: Any) {
         guard let capturePhotoOutput = self.capturePhotoOutput else { return }
         
@@ -56,8 +60,6 @@ class ViewController: UIViewController {
         capturePhotoOutput.capturePhoto(with: photoSettings, delegate: self)
     }
     
-    
-
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -67,6 +69,8 @@ class ViewController: UIViewController {
 extension ViewController : AVCapturePhotoCaptureDelegate {
     func photoOutput(_ output: AVCapturePhotoOutput, didFinishProcessingPhoto photo: AVCapturePhoto, error: Error?) {
 
+        print("took photo from view controller")
+        
         let imageData = photo.fileDataRepresentation()
         let captureImage = UIImage.init(data: imageData!, scale: 1.0)
        
