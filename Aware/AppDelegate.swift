@@ -34,12 +34,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationWillEnterForeground(_ application: UIApplication) {
         // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
-        
         (window?.rootViewController as? ViewController)?.takePhoto(window?.rootViewController as Any)
-
-        
-        
-        
+        print("app entered foreground")
     }
 
     func applicationDidBecomeActive(_ application: UIApplication) {

@@ -22,6 +22,14 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setupCamera()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        takePhoto(self)
+    }
+    
+    func setupCamera() {
         let captureDevice = AVCaptureDevice.default(for: AVMediaType.video)
         
         do {
@@ -45,13 +53,8 @@ class ViewController: UIViewController {
         }
     }
     
-    
-    override func viewDidAppear(_ animated: Bool) {
-        takePhoto(self)
-    }
-    
     @IBAction func takePhoto(_ sender: Any) {
-        
+        setupCamera()
         photoTimer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(capturePhotoBurst), userInfo: nil, repeats: true)
     }
     
@@ -82,7 +85,7 @@ class ViewController: UIViewController {
 extension ViewController : AVCapturePhotoCaptureDelegate {
     func photoOutput(_ output: AVCapturePhotoOutput, didFinishProcessingPhoto photo: AVCapturePhoto, error: Error?) {
 
-        print("took photo from view controller")
+//        print("took photo from view controller")
         
         let imageData = photo.fileDataRepresentation()
         let captureImage = UIImage.init(data: imageData!, scale: 1.0)
