@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:Aware.xcodeproj">
+      location = "self:/Users/hanakim/Documents/Projects/Aware/Fondly.xcodeproj">
    </FileRef>
 </Workspace>

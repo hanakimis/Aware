@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		80681A29217F742300E196FC /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80681A28217F742300E196FC /* StoreKit.framework */; };
 		80B0F5F620F86CC60063ED70 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80B0F5F520F86CC60063ED70 /* AppDelegate.swift */; };
 		80B0F5F820F86CC60063ED70 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80B0F5F720F86CC60063ED70 /* ViewController.swift */; };
 		80B0F5FB20F86CC60063ED70 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 80B0F5F920F86CC60063ED70 /* Main.storyboard */; };
@@ -34,17 +35,18 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		80B0F5F220F86CC60063ED70 /* Aware.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Aware.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		80681A28217F742300E196FC /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		80B0F5F220F86CC60063ED70 /* Fondly.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Fondly.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		80B0F5F520F86CC60063ED70 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		80B0F5F720F86CC60063ED70 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		80B0F5FA20F86CC60063ED70 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		80B0F5FC20F86CC80063ED70 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		80B0F5FF20F86CC80063ED70 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		80B0F60120F86CC80063ED70 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		80B0F60620F86CC80063ED70 /* AwareTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AwareTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		80B0F60620F86CC80063ED70 /* FondlyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FondlyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		80B0F60A20F86CC80063ED70 /* AwareTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AwareTests.swift; sourceTree = "<group>"; };
 		80B0F60C20F86CC80063ED70 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		80B0F61120F86CC80063ED70 /* AwareUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AwareUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		80B0F61120F86CC80063ED70 /* FondlyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FondlyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		80B0F61520F86CC80063ED70 /* AwareUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AwareUITests.swift; sourceTree = "<group>"; };
 		80B0F61720F86CC80063ED70 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -54,6 +56,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				80681A29217F742300E196FC /* StoreKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -74,6 +77,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		80681A27217F742300E196FC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				80681A28217F742300E196FC /* StoreKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		80B0F5E920F86CC60063ED70 = {
 			isa = PBXGroup;
 			children = (
@@ -81,15 +92,16 @@
 				80B0F60920F86CC80063ED70 /* AwareTests */,
 				80B0F61420F86CC80063ED70 /* AwareUITests */,
 				80B0F5F320F86CC60063ED70 /* Products */,
+				80681A27217F742300E196FC /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
 		80B0F5F320F86CC60063ED70 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				80B0F5F220F86CC60063ED70 /* Aware.app */,
-				80B0F60620F86CC80063ED70 /* AwareTests.xctest */,
-				80B0F61120F86CC80063ED70 /* AwareUITests.xctest */,
+				80B0F5F220F86CC60063ED70 /* Fondly.app */,
+				80B0F60620F86CC80063ED70 /* FondlyTests.xctest */,
+				80B0F61120F86CC80063ED70 /* FondlyUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -128,9 +140,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		80B0F5F120F86CC60063ED70 /* Aware */ = {
+		80B0F5F120F86CC60063ED70 /* Fondly */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 80B0F61A20F86CC80063ED70 /* Build configuration list for PBXNativeTarget "Aware" */;
+			buildConfigurationList = 80B0F61A20F86CC80063ED70 /* Build configuration list for PBXNativeTarget "Fondly" */;
 			buildPhases = (
 				80B0F5EE20F86CC60063ED70 /* Sources */,
 				80B0F5EF20F86CC60063ED70 /* Frameworks */,
@@ -140,14 +152,14 @@
 			);
 			dependencies = (
 			);
-			name = Aware;
+			name = Fondly;
 			productName = Aware;
-			productReference = 80B0F5F220F86CC60063ED70 /* Aware.app */;
+			productReference = 80B0F5F220F86CC60063ED70 /* Fondly.app */;
 			productType = "com.apple.product-type.application";
 		};
-		80B0F60520F86CC80063ED70 /* AwareTests */ = {
+		80B0F60520F86CC80063ED70 /* FondlyTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 80B0F61D20F86CC80063ED70 /* Build configuration list for PBXNativeTarget "AwareTests" */;
+			buildConfigurationList = 80B0F61D20F86CC80063ED70 /* Build configuration list for PBXNativeTarget "FondlyTests" */;
 			buildPhases = (
 				80B0F60220F86CC80063ED70 /* Sources */,
 				80B0F60320F86CC80063ED70 /* Frameworks */,
@@ -158,14 +170,14 @@
 			dependencies = (
 				80B0F60820F86CC80063ED70 /* PBXTargetDependency */,
 			);
-			name = AwareTests;
+			name = FondlyTests;
 			productName = AwareTests;
-			productReference = 80B0F60620F86CC80063ED70 /* AwareTests.xctest */;
+			productReference = 80B0F60620F86CC80063ED70 /* FondlyTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		80B0F61020F86CC80063ED70 /* AwareUITests */ = {
+		80B0F61020F86CC80063ED70 /* FondlyUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 80B0F62020F86CC80063ED70 /* Build configuration list for PBXNativeTarget "AwareUITests" */;
+			buildConfigurationList = 80B0F62020F86CC80063ED70 /* Build configuration list for PBXNativeTarget "FondlyUITests" */;
 			buildPhases = (
 				80B0F60D20F86CC80063ED70 /* Sources */,
 				80B0F60E20F86CC80063ED70 /* Frameworks */,
@@ -176,9 +188,9 @@
 			dependencies = (
 				80B0F61320F86CC80063ED70 /* PBXTargetDependency */,
 			);
-			name = AwareUITests;
+			name = FondlyUITests;
 			productName = AwareUITests;
-			productReference = 80B0F61120F86CC80063ED70 /* AwareUITests.xctest */;
+			productReference = 80B0F61120F86CC80063ED70 /* FondlyUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -193,6 +205,11 @@
 				TargetAttributes = {
 					80B0F5F120F86CC60063ED70 = {
 						CreatedOnToolsVersion = 9.4.1;
+						SystemCapabilities = {
+							com.apple.InAppPurchase = {
+								enabled = 1;
+							};
+						};
 					};
 					80B0F60520F86CC80063ED70 = {
 						CreatedOnToolsVersion = 9.4.1;
@@ -204,7 +221,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 80B0F5ED20F86CC60063ED70 /* Build configuration list for PBXProject "Aware" */;
+			buildConfigurationList = 80B0F5ED20F86CC60063ED70 /* Build configuration list for PBXProject "Fondly" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -217,9 +234,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				80B0F5F120F86CC60063ED70 /* Aware */,
-				80B0F60520F86CC80063ED70 /* AwareTests */,
-				80B0F61020F86CC80063ED70 /* AwareUITests */,
+				80B0F5F120F86CC60063ED70 /* Fondly */,
+				80B0F60520F86CC80063ED70 /* FondlyTests */,
+				80B0F61020F86CC80063ED70 /* FondlyUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -282,12 +299,12 @@
 /* Begin PBXTargetDependency section */
 		80B0F60820F86CC80063ED70 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 80B0F5F120F86CC60063ED70 /* Aware */;
+			target = 80B0F5F120F86CC60063ED70 /* Fondly */;
 			targetProxy = 80B0F60720F86CC80063ED70 /* PBXContainerItemProxy */;
 		};
 		80B0F61320F86CC80063ED70 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 80B0F5F120F86CC60063ED70 /* Aware */;
+			target = 80B0F5F120F86CC60063ED70 /* Fondly */;
 			targetProxy = 80B0F61220F86CC80063ED70 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -344,7 +361,7 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Hana Kim (B3P6EW9863)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -404,7 +421,7 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Hana Kim (B3P6EW9863)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
@@ -438,8 +455,8 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.hanakimis.aware;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.hanakimis.fondly;
+				PRODUCT_NAME = Fondly;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -458,8 +475,8 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.hanakimis.aware;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.hanakimis.fondly;
+				PRODUCT_NAME = Fondly;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -485,7 +502,7 @@
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Aware.app/Aware";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Fondly.app/Fondly";
 			};
 			name = Debug;
 		};
@@ -508,7 +525,7 @@
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Aware.app/Aware";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Fondly.app/Fondly";
 			};
 			name = Release;
 		};
@@ -555,7 +572,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		80B0F5ED20F86CC60063ED70 /* Build configuration list for PBXProject "Aware" */ = {
+		80B0F5ED20F86CC60063ED70 /* Build configuration list for PBXProject "Fondly" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				80B0F61820F86CC80063ED70 /* Debug */,
@@ -564,7 +581,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		80B0F61A20F86CC80063ED70 /* Build configuration list for PBXNativeTarget "Aware" */ = {
+		80B0F61A20F86CC80063ED70 /* Build configuration list for PBXNativeTarget "Fondly" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				80B0F61B20F86CC80063ED70 /* Debug */,
@@ -573,7 +590,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		80B0F61D20F86CC80063ED70 /* Build configuration list for PBXNativeTarget "AwareTests" */ = {
+		80B0F61D20F86CC80063ED70 /* Build configuration list for PBXNativeTarget "FondlyTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				80B0F61E20F86CC80063ED70 /* Debug */,
@@ -582,7 +599,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		80B0F62020F86CC80063ED70 /* Build configuration list for PBXNativeTarget "AwareUITests" */ = {
+		80B0F62020F86CC80063ED70 /* Build configuration list for PBXNativeTarget "FondlyUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				80B0F62120F86CC80063ED70 /* Debug */,
