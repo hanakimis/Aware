@@ -1,15 +1,15 @@
 //
-//  AwareTests.swift
-//  AwareTests
+//  FondlyTests.swift
+//  FondlyTests
 //
 //  Created by Hana Kim on 7/12/18.
 //  Copyright © 2018 Hana Kim. All rights reserved.
 //
 
 import XCTest
-@testable import Aware
+@testable import Fondly
 
-class AwareTests: XCTestCase {
+class FondlyTests: XCTestCase {
     
     override func setUp() {
         super.setUp()

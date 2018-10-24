@@ -1,6 +1,6 @@
 //
 //  ViewController.swift
-//  Aware (Mono no aware)
+//  Fondly
 //
 //  Created by Hana Kim on 7/12/18.
 //  Copyright © 2018 Hana Kim. All rights reserved.

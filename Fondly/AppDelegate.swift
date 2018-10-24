@@ -1,6 +1,6 @@
 //
 //  AppDelegate.swift
-//  Aware
+//  Fondly
 //
 //  Created by Hana Kim on 7/12/18.
 //  Copyright © 2018 Hana Kim. All rights reserved.
@@ -17,7 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var captureSession: AVCaptureSession?
     var capturePhotoOutput: AVCapturePhotoOutput?
 
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         return true
     }
