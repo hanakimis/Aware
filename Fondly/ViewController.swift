@@ -8,6 +8,7 @@
 
 import UIKit
 import AVFoundation
+import Photos
 
 class ViewController: UIViewController {
 
@@ -21,8 +22,6 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        setupCamera()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -54,14 +53,26 @@ class ViewController: UIViewController {
     }
     
     @IBAction func takePhoto(_ sender: Any) {
-        setupCamera()
-        photoTimer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(capturePhotoBurst), userInfo: nil, repeats: true)
+        
+        if( (AVCaptureDevice.authorizationStatus(for: .video) ==  .authorized) && ( PHPhotoLibrary.authorizationStatus() == .authorized) ) {
+            setupCamera()
+            photoTimer = Timer.scheduledTimer(timeInterval: 0.25, target: self, selector: #selector(capturePhotoBurst), userInfo: nil, repeats: true)
+        } else {
+            AVCaptureDevice.requestAccess(for: .video, completionHandler: { (granted: Bool) in
+                if granted {
+                    self.setupCamera()
+                } else {
+                    //access denied
+                }
+            })
+        }
+       
     }
     
     @objc func capturePhotoBurst() {
         guard let capturePhotoOutput = self.capturePhotoOutput else { return }
 
-        if photoCount == 20 {
+        if photoCount == 10 {
             photoTimer.invalidate()
             photoCount = 0
         } else
