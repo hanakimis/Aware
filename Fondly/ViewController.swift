@@ -22,10 +22,12 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+//        setupCamera()
+
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        takePhoto(self)
+//        takePhoto(self)
     }
     
     func setupCamera() {
@@ -60,9 +62,18 @@ class ViewController: UIViewController {
         } else {
             AVCaptureDevice.requestAccess(for: .video, completionHandler: { (granted: Bool) in
                 if granted {
-                    self.setupCamera()
+                    
+                    PHPhotoLibrary.requestAuthorization({ (<#PHAuthorizationStatus#>) in
+                        self.setupCamera()
+                        self.photoTimer = Timer.scheduledTimer(timeInterval: 0.25, target: self, selector: #selector(self.capturePhotoBurst), userInfo: nil, repeats: true)
+                    })
+                    
+                    
+                print("granded access to capture photos/videos, but not to add to library")
+                
+                
                 } else {
-                    //access denied
+                    print("not granted access to capture photos")
                 }
             })
         }
@@ -82,7 +93,10 @@ class ViewController: UIViewController {
             let photoSettings = AVCapturePhotoSettings()
             photoSettings.isAutoStillImageStabilizationEnabled = true
             photoSettings.isHighResolutionPhotoEnabled = true
-            photoSettings.flashMode = .auto
+            photoSettings.isAutoDualCameraFusionEnabled = true
+            photoSettings.isPortraitEffectsMatteDeliveryEnabled = true
+            photoSettings.isAutoRedEyeReductionEnabled = true
+            photoSettings.flashMode = .off
             capturePhotoOutput.capturePhoto(with: photoSettings, delegate: self)
         }
     }
