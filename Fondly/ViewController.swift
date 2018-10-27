@@ -22,12 +22,11 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        setupCamera()
-
     }
     
     override func viewDidAppear(_ animated: Bool) {
-//        takePhoto(self)
+// I don't think we need ot do this multiple times.
+        //        takePhoto(self)
     }
     
     func setupCamera() {
@@ -55,21 +54,19 @@ class ViewController: UIViewController {
     }
     
     @IBAction func takePhoto(_ sender: Any) {
-        
+        setupCamera()
+
         if( (AVCaptureDevice.authorizationStatus(for: .video) ==  .authorized) && ( PHPhotoLibrary.authorizationStatus() == .authorized) ) {
-            setupCamera()
             photoTimer = Timer.scheduledTimer(timeInterval: 0.25, target: self, selector: #selector(capturePhotoBurst), userInfo: nil, repeats: true)
         } else {
             AVCaptureDevice.requestAccess(for: .video, completionHandler: { (granted: Bool) in
                 if granted {
                     
-                    PHPhotoLibrary.requestAuthorization({ (<#PHAuthorizationStatus#>) in
-                        self.setupCamera()
-                        self.photoTimer = Timer.scheduledTimer(timeInterval: 0.25, target: self, selector: #selector(self.capturePhotoBurst), userInfo: nil, repeats: true)
-                    })
+//                    PHPhotoLibrary.requestAuthorization({ (<#PHAuthorizationStatus#>) in
+//
+//                    })
+                    self.photoTimer = Timer.scheduledTimer(timeInterval: 0.25, target: self, selector: #selector(self.capturePhotoBurst), userInfo: nil, repeats: true)
                     
-                    
-                print("granded access to capture photos/videos, but not to add to library")
                 
                 
                 } else {
@@ -86,8 +83,7 @@ class ViewController: UIViewController {
         if photoCount == 10 {
             photoTimer.invalidate()
             photoCount = 0
-        } else
-        {
+        } else {
             photoCount += 1
             
             let photoSettings = AVCapturePhotoSettings()
