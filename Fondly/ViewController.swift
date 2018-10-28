@@ -19,14 +19,22 @@ class ViewController: UIViewController {
     var capturePhotoOutput: AVCapturePhotoOutput?
     var photoTimer: Timer!
     var photoCount = 0
+    var isLoaded = "false"
     
     override func viewDidLoad() {
         super.viewDidLoad()
+//        setupCamera()
+        isLoaded = "true"
     }
     
     override func viewDidAppear(_ animated: Bool) {
-// I don't think we need ot do this multiple times.
-        //        takePhoto(self)
+        print("view did appear")
+        setupAndTakePicture()
+    }
+    
+    func setupAndTakePicture() {
+        setupCamera()
+        takePhoto(self)
     }
     
     func setupCamera() {
@@ -54,7 +62,6 @@ class ViewController: UIViewController {
     }
     
     @IBAction func takePhoto(_ sender: Any) {
-        setupCamera()
 
         if( (AVCaptureDevice.authorizationStatus(for: .video) ==  .authorized) && ( PHPhotoLibrary.authorizationStatus() == .authorized) ) {
             photoTimer = Timer.scheduledTimer(timeInterval: 0.25, target: self, selector: #selector(capturePhotoBurst), userInfo: nil, repeats: true)
@@ -89,8 +96,6 @@ class ViewController: UIViewController {
             let photoSettings = AVCapturePhotoSettings()
             photoSettings.isAutoStillImageStabilizationEnabled = true
             photoSettings.isHighResolutionPhotoEnabled = true
-            photoSettings.isAutoDualCameraFusionEnabled = true
-            photoSettings.isPortraitEffectsMatteDeliveryEnabled = true
             photoSettings.isAutoRedEyeReductionEnabled = true
             photoSettings.flashMode = .off
             capturePhotoOutput.capturePhoto(with: photoSettings, delegate: self)
