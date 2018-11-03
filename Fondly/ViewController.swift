@@ -19,22 +19,21 @@ class ViewController: UIViewController {
     var capturePhotoOutput: AVCapturePhotoOutput?
     var photoTimer: Timer!
     var photoCount = 0
-    var isLoaded = "false"
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        setupCamera()
-        isLoaded = "true"
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        print("view did appear")
+        
         setupAndTakePicture()
+        
+        // allows us to get photos when app is in foreground again
+        NotificationCenter.default.addObserver(self, selector: #selector(setupAndTakePicture), name: UIApplication.willEnterForegroundNotification, object: nil)
     }
     
-    func setupAndTakePicture() {
+
+    
+    @objc func setupAndTakePicture() {
         setupCamera()
-        takePhoto(self)
+        takePhoto()
     }
     
     func setupCamera() {
@@ -61,27 +60,23 @@ class ViewController: UIViewController {
         }
     }
     
-    @IBAction func takePhoto(_ sender: Any) {
-
-        if( (AVCaptureDevice.authorizationStatus(for: .video) ==  .authorized) && ( PHPhotoLibrary.authorizationStatus() == .authorized) ) {
-            photoTimer = Timer.scheduledTimer(timeInterval: 0.25, target: self, selector: #selector(capturePhotoBurst), userInfo: nil, repeats: true)
+    @IBAction func buttonPress(_ sender: Any) {
+        takePhoto()
+    }
+    
+    
+    func takePhoto() {
+        photoTimer = Timer.scheduledTimer(timeInterval: 0.25, target: self, selector: #selector(capturePhotoBurst), userInfo: nil, repeats: true)
+        
+        if (AVCaptureDevice.authorizationStatus(for: .video) ==  .authorized) {
+            print("entered authorized status")
         } else {
-            AVCaptureDevice.requestAccess(for: .video, completionHandler: { (granted: Bool) in
-                if granted {
-                    
-//                    PHPhotoLibrary.requestAuthorization({ (<#PHAuthorizationStatus#>) in
-//
-//                    })
-                    self.photoTimer = Timer.scheduledTimer(timeInterval: 0.25, target: self, selector: #selector(self.capturePhotoBurst), userInfo: nil, repeats: true)
-                    
-                
-                
-                } else {
-                    print("not granted access to capture photos")
-                }
-            })
+//            AVCaptureDevice.requestAccess(for: .video, completionHandler: { (granted: Bool) in
+//                if granted {
+//                } else {
+//                }
+//            })
         }
-       
     }
     
     @objc func capturePhotoBurst() {
@@ -110,12 +105,11 @@ class ViewController: UIViewController {
 
 extension ViewController : AVCapturePhotoCaptureDelegate {
     func photoOutput(_ output: AVCapturePhotoOutput, didFinishProcessingPhoto photo: AVCapturePhoto, error: Error?) {
-
-//        print("took photo from view controller")
         
         let imageData = photo.fileDataRepresentation()
         let captureImage = UIImage.init(data: imageData!, scale: 1.0)
-       
+        
+        
         if let image = captureImage {
             UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
         }
